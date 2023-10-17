@@ -1,7 +1,14 @@
+<?php 
+        $userId = $_SESSION["authId"];
+        $query = "SELECT * FROM users WHERE userId = $userId";
+        $userDetail = mysqli_fetch_row(mysqli_query($connection, $query));
+        $username = $userDetail[1];
+?>
+
 <div class="top-bar">
         <div class="top-bar-left-items">
             <img class="top-bar-button" src="Assets/BurgerButton.png" alt="Button.png">
-            <span class="top-bar-title"><?php echo $pageTitle ?></span>
+            <span class="top-bar-title"><?php echo "$pageTitle (Welcome back, $username)" ?></span>
         </div>
         <div class="top-bar-right-items">
             <img class="avatar" src="Assets/Avatar.png" alt="avatar.png">
@@ -17,7 +24,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0px 10px;
-    background-color: #ffffff;
+    background-color: #ADD8E6;
     box-shadow: 0 3px 10px #0000000D;
     z-index: 3;
     position: relative;

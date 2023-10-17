@@ -1,8 +1,8 @@
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #f7f7f7;
+    font-family: 'Roboto Mono';
+    background: #001F3F;
 }
 
 a {
@@ -31,6 +31,10 @@ form {
     max-width: 800px;
 }
 
+form label {
+    color: white;
+}
+
 form [type = "text"], input[type = "password"], input[type = "file"], input[type = "textarea"], input[type = "datetime-local"], select {
     width: 100%;
     padding: 10px 0;
@@ -39,6 +43,7 @@ form [type = "text"], input[type = "password"], input[type = "file"], input[type
     border-bottom: 1px solid #ccc;
     background-color: white;
     font-size: 16px;
+    font-family: 'Roboto Mono';
 }
 
 form input[type="submit"] {
@@ -46,5 +51,10 @@ form input[type="submit"] {
     background-color: blue;
     color: white;
     border-radius: 5px;
+    font-family: 'Roboto Mono';
     cursor: pointer;
+}
+
+.formMessage {
+    color: white !important;
 }

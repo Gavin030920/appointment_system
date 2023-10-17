@@ -11,6 +11,7 @@ include "AuthenticateMiddleware.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="global.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
 </head>
 <body>
     <?php $pageTitle = "Merchant Registration Form"; include "TopBar.php" ?>

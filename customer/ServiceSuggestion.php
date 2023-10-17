@@ -11,6 +11,7 @@ include "AuthenticateMiddleware.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="global.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
 </head>
 <body style="margin: 0;">
     <?php $pageTitle = "Service Suggestion"; include "TopBar.php" ?>
@@ -57,6 +58,7 @@ include "AuthenticateMiddleware.php";
 }
 
 .item:hover {
+    background-color: #E5E5E5;
     cursor: pointer;
 }
 
@@ -65,7 +67,6 @@ include "AuthenticateMiddleware.php";
     grid-template-columns: repeat(4, auto);
     gap: 20px;
     padding: 20px;
-    background-color: #f7f7f7;
 }
 
 .item-image {

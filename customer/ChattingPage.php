@@ -11,6 +11,7 @@ include "AuthenticateMiddleware.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="global.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
 </head>
 <body>
     <?php $pageTitle = "Chatting"; include "TopBar.php" ?>
@@ -150,10 +151,11 @@ include "AuthenticateMiddleware.php";
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: #ADD8E6;
     border-left: 1px solid #ddd;
     overflow: hidden;
     z-index: 1;
+    border: 1px solid grey;
 }
 
 .chat-sidebar:hover {
@@ -193,7 +195,6 @@ include "AuthenticateMiddleware.php";
     width: 0;
     overflow: hidden;
     height: 100%;
-    background-color: #f5f5f5;
 }
 
 .chat-icon-item:hover .chat-expand {
@@ -207,7 +208,7 @@ include "AuthenticateMiddleware.php";
 .user-content {
     display: flex;
     align-items: center;
-    background-color: #868686;
+    background-color: #F9F9F9;
     padding: 0px 50px;
     height: 20%;
 }
@@ -234,11 +235,11 @@ include "AuthenticateMiddleware.php";
 
 .text-box-message {
     padding: 25px;
-    background-color: #D9D9D9;
+    background-color: #ADD8E6;
 }
 
 .message {
-    background-color: #A1A1A1;
+    background-color: #F9F9F9;
     padding: 10px 50px;
     border-radius: 25px;
     width: 50%;

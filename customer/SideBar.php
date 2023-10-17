@@ -77,7 +77,7 @@
     left: -500px;
     height: 100%;
     width: 500px;
-    background-color: #f5f5f5;
+    background-color: #ADD8E6;
     box-shadow: 2px 0 5px #0000000D;
     padding-top: 60px;
     z-index: 2;
@@ -107,7 +107,7 @@
 }
 
 .calender {
-    margin-top: 250px;
+    margin-top: 100px;
 }
 
 .calender-header {
