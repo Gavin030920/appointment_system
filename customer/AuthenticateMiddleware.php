@@ -14,7 +14,9 @@ if (!isset($_SESSION["authId"]) ||
         {
             $userId = $_SESSION["authId"];
             $token = $_SESSION["token"];
-            $query = "SELECT * FROM users WHERE token = '$token' AND userId = '$userId'";
+            $query = "SELECT * FROM users WHERE token = '$token' 
+                        AND userId = '$userId' 
+                        AND role = 'customer'";
             $result = mysqli_query($connection, $query);
 
             if (mysqli_num_rows($result) == 0) {
