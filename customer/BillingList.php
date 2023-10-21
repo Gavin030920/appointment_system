@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start(); // buffering before sending to client
 include "DbConnection.php";
 include "AuthenticateMiddleware.php";
 ?>
@@ -127,32 +128,35 @@ include "AuthenticateMiddleware.php";
 <?php
     if (isset($_POST["generateBillSubmit"])) {
         $customerId = $_POST["formUserId"];
-        $unpaidServiceHistory = "SELECT *
+        $unpaidServiceHistory = "SELECT sh.serviceHistoryId, sh.repairmanId, sh.serviceId, sh.totalAmount, 
+                                        i.invoiceId, i.status
                                     FROM serviceHistories sh
                                     LEFT JOIN invoices i ON i.serviceHistoryId = sh.serviceHistoryId
                                     WHERE (i.status = 'pending' OR i.status IS NULL)
-                                    AND i.customerId = '$customerId'";
+                                    AND sh.customerId = '$customerId'";
         $result = mysqli_query($connection, $unpaidServiceHistory);
         if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_row($result)) {
-                $serviceHistoryId = $row[0];
-                $repairmanId = $row[3];
-                $serviceId = $row[2];
+            while ($row = mysqli_fetch_array($result)) {
+                $serviceHistoryId = $row["serviceHistoryId"];
+                $repairmanId = $row["repairmanId"];
+                $serviceId = $row["serviceId"];
                 $dateTimeNow = date("Y-m-d H:i:s");
                 $dueDate = date("Y-m-d H:i:s", strtotime($dateTimeNow . '+10 days'));
-                $totalAmount = $row[9];
+                $totalAmount = $row["totalAmount"];
 
-                $previousInvoiceId = $row[10];
+                $previousInvoiceId = $row["invoiceId"];
                 $deletePreviousUnpaidInvoiceQuery = "DELETE FROM invoices WHERE invoiceId = '$previousInvoiceId'";
 
                 $createInvoiceQuery = "INSERT INTO invoices (repairmanId, customerId, serviceHistoryId, invoiceDate, dueDate, totalAmount, status)
                                         VALUES ('$repairmanId', '$customerId', '$serviceHistoryId', '$dateTimeNow', '$dueDate', '$totalAmount', 'pending')";
 
-                mysqli_query($connection, $previousInvoiceId);
+                mysqli_query($connection, $deletePreviousUnpaidInvoiceQuery);
                 mysqli_query($connection, $createInvoiceQuery);
             }
         }
+        header( "Location:" .$_SERVER['REQUEST_URI']);
     }
+    ob_end_flush();
 ?>
 
 <style>
