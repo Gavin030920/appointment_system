@@ -1,3 +1,10 @@
+<?php
+session_start();
+include './DbConnection.php';
+include './AuthenticateMiddleware.php'
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

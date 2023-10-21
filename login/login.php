@@ -35,8 +35,8 @@ if (isset($_POST["submit"])) {
   if ($userData[3] == 'customer') {
     echo "<script>location.replace('../customer/ServiceSuggestion.php');</script>";
   } else if ($userData[3] == 'repairman') {
-    // Gavin
-    // echo "<script>location.replace('ServiceSuggestion.php');</script>";
+    
+    echo "<script>location.replace('../Repairman/CustomerService/index.php');</script>";
   } else {
     echo "<script>location.replace('../admin/admin.php');</script>";
   };
